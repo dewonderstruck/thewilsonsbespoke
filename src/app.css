@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    font-family: 'Manrope Variable', sans-serif;
+}
+
+main {
+    font-family: 'Marcellus', serif;
+}
+
+.manrope {
+    font-family: 'Manrope Variable', sans-serif;
+}
+
+.marcellus {
+    font-family: 'Marcellus', serif;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Garnett;
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://cdn.mxpnl.com/static/marketing/fonts/garnett/garnett-medium.woff2) format("woff2")
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Garnett;
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://cdn.mxpnl.com/static/marketing/fonts/garnett/garnett-regular.woff2) format("woff2")
+}
