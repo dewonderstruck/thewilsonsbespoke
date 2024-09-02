@@ -31,12 +31,12 @@
 	];
 
 	const navLinks: NavLink[] = [
-		{ name: 'FAQ', url: '#' },
-		{ name: 'SHIPPING', url: '#' },
-		{ name: 'RETURNS', url: '#' },
-		{ name: 'TERMS & CONDITIONS', url: '#' },
-		{ name: 'PRIVACY POLICY', url: '#' },
-		{ name: 'CONTACT US', url: '#' }
+		{ name: 'FAQ', url: '/policies/faq' },
+		{ name: 'SHIPPING', url: '/policies/shipping' },
+		{ name: 'RETURNS', url: '/policies/returns' },
+		{ name: 'TERMS & CONDITIONS', url: '/policies/terms-and-conditions' },
+		{ name: 'PRIVACY POLICY', url: '/policies/privacy-policy' },
+		{ name: 'CONTACT US', url: '/contact' }
 	];
 
 	onMount(() => {
@@ -46,12 +46,12 @@
 
 <footer class="bg-black text-white p-8">
 	<!-- Bottom Section -->
-	<div class="mt-4 pt-4 border-t border-gray-700 flex flex-wrap justify-between items-center">
+	<div class="mt-4 pt-4 border-t border-gray-700/30 flex flex-wrap justify-between items-center">
 		<div
-			class="w-full uppercase md:w-auto mb-4 md:mb-0 text-center md:text-left text-gray-300"
+			class="w-full md:w-auto mb-4 md:mb-0 text-center md:text-left text-xs text-gray-300 max-w-xl"
 		>
-			© 2024 THE WILSONS BESPOKE. All Rights Reserved.
-		</div>
+		All content © The Wilsons Bespoke. Unauthorized use prohibited. Third-party content subject to separate terms. All trademarks property of respective owners.
+	</div>
 		<div class="flex-row flex-wrap justify-between items-end">
 			<!-- Payment Methods -->
 			<div class="w-full md:w-auto mb-4 md:mb-0">
@@ -267,10 +267,10 @@
 	<div class="flex flex-wrap justify-between items-center">
 		<!-- Copyright -->
 		<div
-			class="w-full md:w-auto mb-4 md:mb-0 text-center md:text-left text-xs text-gray-300 max-w-xl"
+			class="w-full uppercase md:w-auto mb-4 md:mb-0 text-center md:text-left text-gray-300"
 		>
-		All content © The Wilsons Bespoke. Unauthorized use prohibited. Third-party content subject to separate terms. All trademarks property of respective owners.
-	</div>
+			© 2024 THE WILSONS BESPOKE. All Rights Reserved.
+		</div>
 		<div
 			class="w-full uppercase md:w-auto mb-4 md:mb-0 text-center md:text-left text-sm text-gray-300"
 		></div>
