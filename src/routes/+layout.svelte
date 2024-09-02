@@ -241,10 +241,6 @@
 		</div>
 	</header>
 	<slot />
-
-	
-	<Footer/>
-
 	<Footer2/>
 	  
 {/if}
