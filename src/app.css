@@ -19,6 +19,22 @@ main {
     font-family: 'Marcellus', serif;
 }
 
+.cormorant-garamond {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.inter {
+    font-family: 'Inter', sans-serif;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Cormorant Garamond;
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://cdn.mxpnl.com/static/marketing/fonts/garnett/garnett-regular.woff2) format("woff2")
+}
+
 @font-face {
     font-display: swap;
     font-family: Garnett;

@@ -18,14 +18,6 @@
     phone: '',
     message: ''
   };
-
-  function handleSubmit(event) {
-    // Prevent default form submission
-    event.preventDefault();
-    
-    // Handle form submission logic here
-    console.log(formData);
-  }
 </script>
 
 <main class="flex flex-col items-center min-h-screen bg-[#0d0d0d] text-white text-center">
@@ -98,19 +90,6 @@
   </main>
 
 <style>
-.fix-height {
-    height: 50rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
 
-.fix-text {
-    position: relative;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 </style>

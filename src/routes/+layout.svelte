@@ -89,9 +89,6 @@
 					<div class="m-1">
 						<a href="/" class="text-white text-lg">Home</a>
 					</div>
-					<div class="m-1">
-						<a href="/our-process" class="text-white text-lg">Our Process</a>
-					</div>
 
 					<!-- Services Dropdown -->
 					<div class="m-1 hs-dropdown [--trigger:hover] relative inline-flex">
@@ -132,16 +129,12 @@
 								class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-white hover:underline focus:outline-none focus:bg-gray-100"
 								>Canvas Suits</a
 							>
-							<a
-								href="/services/accessories"
-								class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-white hover:underline focus:outline-none focus:bg-gray-100"
-								>Accessories</a
-							>
+						
 						</div>
 					</div>
 
 					<div class="m-1">
-						<a href="/fabrics" class="text-white text-lg">Fabrics</a>
+						<a href="/our-process" class="text-white text-lg">Our Process</a>
 					</div>
 
 					<!-- Lookbook Dropdown -->
@@ -239,6 +232,7 @@
 				</nav>
 			</div>
 		</div>
+		
 	</header>
 	<slot />
 	<Footer2/>
