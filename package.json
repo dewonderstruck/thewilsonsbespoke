@@ -44,12 +44,16 @@
   "dependencies": {
     "@fontsource-variable/manrope": "^5.0.21",
     "@fontsource/marcellus": "^5.0.14",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@popperjs/core": "^2.11.8",
     "@sveltejs/adapter-vercel": "^5.4.3",
     "@tabler/icons-svelte": "^3.14.0",
     "firebase": "^10.13.1",
     "lucide-svelte": "^0.437.0",
     "preline": "^2.4.1",
+    "svelte-carousel": "^1.0.25",
+    "svelte-fa": "^4.0.2",
     "svelte-icons-pack": "^3.1.3"
   }
 }

@@ -2,7 +2,8 @@
     import { IconMail, IconPhone, IconMapPin } from '@tabler/icons-svelte';
     import { page } from '$app/stores';
     import { onMount } from 'svelte';
-
+    import Carousel from 'svelte-carousel'
+    import CarouselItem from '$lib/component/carouselItem.svelte'
     export let slides = [
         {
             image: 'https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/inner-img-14.jpg',
@@ -14,6 +15,11 @@
     let currentIndex = 0;
     let path;
     let breadcrumbs = [];
+    let colors = [
+        { color: '#FF5733', text: 'Custom Tailored' },
+        { color: '#33FF57', text: 'Custom Tailored' },
+        { color: '#3357FF', text: 'Custom Tailored' },
+    ];
 
     // Use onMount to ensure we have access to $page.url.pathname
     onMount(() => {
@@ -82,8 +88,45 @@
               </p>
             </div>
           </div>
+          <div class="w-full flex h-1/2 text-white">
+            <div class="w-1/2 p-24 flex flex-col justify-center">
+              <h1 class="text-4xl font-bold mb-4 text-start max-w-2xl leading-normal">Bespoke Suit & Dress Making Professionals</h1>
+              <p class="text-xl mb-4 text-start italic text-gray-400">High Quality</p>
+              <p class="mb-8 text-gray-200 text-start max-w-xl">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti cupiditate non provident, similique sunt in culpa...
+              </p>
+            </div>
+            <div class="w-1/2 bg-cover bg-center" style="background-image: url('https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/main-home-img-6.jpg');">
+              <!-- You'll need to replace the URL with an actual image of a tailor working on a suit -->
+            </div>
+          </div>
+    
+          <div class="w-full flex h-1/2 text-white">
+            <div class="w-1/2 bg-cover bg-center" style="background-image: url('https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/main-home-img-6.jpg');">
+                <!-- You'll need to replace the URL with an actual image of a tailor working on a suit -->
+              </div>
+            <div class="w-1/2 p-24 ml-16 flex flex-col justify-center">
+              <h1 class="text-4xl font-bold mb-4 text-start max-w-2xl leading-normal">Bespoke Suit & Dress Making Professionals</h1>
+              <p class="text-xl mb-4 text-start italic text-gray-400">High Quality</p>
+              <p class="mb-8 text-gray-200 text-start max-w-xl">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti cupiditate non provident, similique sunt in culpa...
+              </p>
+            </div>
+          </div>
+
+          <Carousel
+  particlesToShow={3}
+  particlesToScroll={2}
+>
+  {#each colors as { color, text } (color)}
+    <CarouselItem {color} {text} />
+  {/each}
+</Carousel>
+          
         </div>
-      </section>         
+      </section> 
+      
+     
 </div>
 
 

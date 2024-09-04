@@ -10,7 +10,7 @@
       text-align: center;
       padding-left: 5vw;
       padding-right: 5vw;
-      padding-top: 10vw;
+      padding-top: 14vw;
       padding-bottom: 10vh;
       line-height: 1.618; /* Golden Ratio for line spacing */
       font-family: 'Times New Roman', serif;

@@ -48,11 +48,11 @@
 	<!-- Bottom Section -->
 	<div class="mt-4 pt-4 border-t border-gray-700/30 flex flex-wrap justify-between items-center">
 		<div
-			class="w-full md:w-auto mb-4 md:mb-0 text-center md:text-left text-xs text-gray-300 max-w-xl"
+			class="w-full md:w-auto mb-4 md:mb-0 text-center md:text-left text-xs text-gray-300 max-w-xl manrope"
 		>
-		All content © The Wilsons Bespoke. Unauthorized use prohibited. Third-party content subject to separate terms. All trademarks property of respective owners.
+		All content on this website is copyrighted. Unauthorized use is strictly prohibited. Third-party content is subject to separate terms and conditions. All trademarks are the property of their respective owners.
 	</div>
-		<div class="flex-row flex-wrap justify-between items-end">
+		<div class="flex-row flex-wrap justify-between items-end md:justify-between md:items-end justify-center items-center">
 			<!-- Payment Methods -->
 			<div class="w-full md:w-auto mb-4 md:mb-0">
 				<span class="inline-block mr-2 flex-row flex">
@@ -275,11 +275,11 @@
 			class="w-full uppercase md:w-auto mb-4 md:mb-0 text-center md:text-left text-sm text-gray-300"
 		></div>
 		<!-- NavLinks -->
-		<div class="w-full md:w-auto flex justify-center md:justify-end">
+		<div class="w-full flex flex-wrap justify-center md:justify-end">
 			{#each navLinks as links}
 				<a
 					href={links.url}
-					class="mx-2 text-white hover:text-gray-300 hover:underline hover:underline-offset-4"
+					class="mx-2 my-1 text-white hover:text-gray-300 hover:underline hover:underline-offset-4"
 					aria-label={links.name}
 				>
 					{links.name}
@@ -326,6 +326,9 @@
 		.section-footer__row__col {
 			padding: 0 20px;
 			flex-basis: auto;
+			/* Set Center */
+			justify-content: center;
+			align-items: center;
 		}
 	}
 	.section-footer__row__col {

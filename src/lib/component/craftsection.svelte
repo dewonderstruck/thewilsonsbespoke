@@ -33,23 +33,20 @@
   
   <section class="py-24 bg-black/80">
     <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row">
-        <div class="md:w-1/2 mb-8 md:mb-0">
-          <h2 class="text-4xl font-serif mb-4 text-white">Individuality of your design.</h2>
-          <h2 class="text-4xl font-serif mb-4 text-white">Create your style.</h2>
-          <p class="text-gray-400 italic mb-8">High Quality Tailor</p>
+        <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h2 class="text-4xl font-serif mb-4 text-white">Unleash Your Unique Style.</h2>
+                <h2 class="text-4xl font-serif mb-4 text-white">Crafted for Perfection.</h2>
+                <p class="text-gray-400 italic mb-8">The Wilson's Bespoke Experience</p>
+            </div>
+            <div class="md:w-1/2">
+                <p class="text-gray-300">
+                    Every piece we create is a testament to our dedication to quality and individuality. From the initial design to the final stitch, our focus is on crafting garments that not only fit perfectly but also reflect your unique style and personality.
+                </p>
+            </div>
         </div>
-        <div class="md:w-1/2">
-          <p class="text-gray-300">
-            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-            laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum
-            iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-            consequatur, vel illum qui dolorem eum fugiat quo voluptas
-          </p>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
   
   <style>
     /* Add any additional styles here */
