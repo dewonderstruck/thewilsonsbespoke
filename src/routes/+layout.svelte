@@ -80,6 +80,9 @@
 			: ''}"
 		transition:fade
 	>
+	<div class="bg-red-300 text-center py-3 text-base font-medium">
+		Website under development, some links may be broken or pages may not work as expected.
+	</div>
 		<div class="container mx-auto px-4 py-4 flex justify-center items-center">
 			<button class="text-white md:hidden absolute left-8" on:click={toggleMenu}>
 				{#if isMenuOpen}
@@ -129,7 +132,7 @@
 					</div>
 
 					<!-- About Us Dropdown -->
-					<div class="m-1 hs-dropdown [--trigger:hover] relative inline-flex">
+					<div class="m-1 relative inline-flex">
 						<a
 							href="/about"
 							class="uppercase text-white text-lg px-4 inline-flex items-center gap-x-2 hs-dropdown-toggle disabled:pointer-events-none"
@@ -138,37 +141,8 @@
 							aria-label="Dropdown"
 						>
 							About
-							<svg
-								class="hs-dropdown-open:rotate-180 size-4"
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg
-							>
+							
 						</a>
-
-						<div
-							class="rounded hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-black bg-opacity-70 p-1 space-y-0.5 mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
-							role="menu"
-							aria-orientation="vertical"
-						>
-							<a
-								href="/about/our-story"
-								class="flex items-center gap-x-3.5 py-2 px-3 underline-offset-4 text-white hover:underline focus:outline-none focus:bg-gray-100"
-								>Our Story</a
-							>
-
-							<a
-								href="/about/our-commitment"
-								class="flex items-center gap-x-3.5 py-2 underline-offset-4 px-3 text-white hover:underline focus:outline-none focus:bg-gray-100"
-								>Our Commitment</a
-							>
-						</div>
 					</div>
 
 					<div class="m-1">
@@ -180,22 +154,28 @@
 	</header>
 
 	<!-- Responsive Menu Overlay -->
-	<div class="fixed inset-0 bg-black z-20 transition-transform duration-500 {isMenuOpen ? 'translate-y-0' : '-translate-y-full'}">
-		<div class="mx-auto px-4 top-2/4 py-4 flex flex-col items-center justify-center h-full">
-			<button class="text-white absolute top-10 left-8 py-4 border-1 border-white rounded-full border-circle" on:click={toggleMenu}>
-				<IconX size={34} />
+	<div class="fixed inset-0 bg-black bg-opacity-95 z-20 transition-transform duration-500 {isMenuOpen ? 'translate-y-0' : '-translate-y-full'}">
+		<div class="mx-auto px-6 py-8 flex flex-col items-start justify-between h-full">
+			<button class="text-white self-end p-2" on:click={toggleMenu}>
+				<IconX size={28} />
 			</button>
-			<nav class="flex flex-col items-center space-y-8 uppercase">
-				<a href="/" class="text-white text-2xl transition-transform duration-300 transform hover:scale-110 hover:underline" on:click={toggleMenu}>Home</a>
-				<a href="/services" class="text-white text-2xl transition-transform duration-300 transform hover:scale-110 hover:underline" on:click={toggleMenu}>Services</a>
-				<a href="/our-process" class="text-white text-2xl transition-transform duration-300 transform hover:scale-110 hover:underline" on:click={toggleMenu}>Our Process</a>
-				<a href="/lookbook/spring-summer" class="text-white text-2xl transition-transform duration-300 transform hover:scale-110 hover:underline" on:click={toggleMenu}>Spring/Summer 24</a>
-				<a href="/lookbook/fall-winter" class="text-white text-2xl transition-transform duration-300 transform hover:scale-110 hover:underline" on:click={toggleMenu}>Fall/Winter 24</a>
-				<a href="/about" class="text-white text-2xl transition-transform duration-300 transform hover:scale-110 hover:underline" on:click={toggleMenu}>About</a>
-				<a href="/about/our-story" class="text-white text-2xl transition-transform duration-300 transform hover:scale-110 hover:underline" on:click={toggleMenu}>Our Story</a>
-				<a href="/about/our-commitment" class="text-white text-2xl transition-transform duration-300 transform hover:scale-110 hover:underline" on:click={toggleMenu}>Our Commitment</a>
-				<a href="/contact" class="text-white text-2xl transition-transform duration-300 transform hover:scale-110 hover:underline" on:click={toggleMenu}>Contact Us</a>
+			<nav class="flex flex-col items-start space-y-6 w-full">
+				<a href="/" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Home</a>
+				<a href="/services" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Services</a>
+				<a href="/our-process" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Our Process</a>
+				<div class="w-full">
+					<a href="/about" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>About</a>
+				</div>
+				<a href="/contact" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Contact Us</a>
 			</nav>
+			<div class="flex space-x-4 mt-8">
+				<a href="#" class="text-white hover:text-gray-300 transition-colors duration-300">
+					<IconBrandInstagram size={24} />
+				</a>
+				<a href="#" class="text-white hover:text-gray-300 transition-colors duration-300">
+					<IconBrandMeta size={24} />
+				</a>
+			</div>
 		</div>
 	</div>
 
