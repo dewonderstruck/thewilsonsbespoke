@@ -1,132 +1,74 @@
 <script>
-    import { IconMail, IconPhone, IconMapPin } from '@tabler/icons-svelte';
-    import { page } from '$app/stores';
     import { onMount } from 'svelte';
-    import CarouselItem from '$lib/component/carouselItem.svelte'
-    import Bespokesuits from '$lib/component/bespokesuits.svelte'
-    export let slides = [
-        {
-            image: 'https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/inner-img-14.jpg',
-            title: 'Services',
-            subtitle: 'Please read these terms and conditions carefully before using our services...',
-        },
-    ];
+    import { fade, fly } from 'svelte/transition';
+    import CTAButton from '$lib/component/CTAButton.svelte';
 
-    let currentIndex = 0;
-    let path;
-    let breadcrumbs = [];
-    let colors = [
-        { color: '#FF5733', text: 'Custom Tailored' },
-        { color: '#33FF57', text: 'Custom Tailored' },
-        { color: '#3357FF', text: 'Custom Tailored' },
-    ];
-
-    // Use onMount to ensure we have access to $page.url.pathname
+    let visible = false;
     onMount(() => {
-        path = $page.url.pathname;
-        breadcrumbs = path.split('/').filter(Boolean);
+        visible = true;
     });
+
+    const services = [
+        {
+            title: 'Bespoke Suits',
+            description: 'Tailored to perfection, our bespoke suits are crafted to your exact measurements and style preferences.',
+            image: 'https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/inner-img-2.jpg'
+        },
+        {
+            title: 'Made-to-Measure Shirts',
+            description: 'Experience the luxury of shirts that fit you flawlessly, with your choice of fabrics and details.',
+            image: 'https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/main-home-img-2.jpg'
+        },
+        {
+            title: 'Custom Accessories',
+            description: 'Complete your look with our range of handcrafted accessories, from ties to cufflinks.',
+            image: 'https://kozasko.com/cdn/shop/files/70_2082099a-0540-4db5-bbfe-461b24c29f7c.jpg?v=1715191552&width=1346'
+        }
+    ];
 </script>
 
-<div id="services" class="flex manrope flex-col items-center min-h-screen bg-[#0d0d0d] text-white text-center">
-    <!-- Fixed height for the image section -->
-    <div class="relative w-full h-[61.8vh]">
-        <img
-            src="{slides[currentIndex].image}"
-            alt="bg"
-            class="h-full w-full object-cover"
-            loading="lazy"
-            decoding="async"
-        />
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+<div class="bg-[#0d0d0d] text-white font-serif">
+    <section class="relative h-screen">
+        <div class="absolute inset-0">
+            <img src="https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/inner-img-14.jpg" alt="Bespoke Tailoring" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
-        <div class="absolute inset-0 flex items-center top-1/3 justify-center">
-            <div class="flex flex-col items-center justify-center">
-                <h1 class="text-7xl uppercase mb-6 cormorant-garamond text-white tracking-wider">{slides[currentIndex].title}</h1>
-                <ol class="flex items-center cormorant-garamond  whitespace-nowrap">
-                    <li class="inline-flex items-center">
-                        <a class="flex items-center text-base text-gray-300 hover:underline focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500" href="/">
-                            Home
-                        </a>
-                        {#if breadcrumbs.length > 0}
-                            <svg class="shrink-0 size-5 text-gray-200 mx-2" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M6 13L10 3" stroke="currentColor" stroke-linecap="round"></path>
-                            </svg>
-                        {/if}
-                    </li>
-                    {#each breadcrumbs as crumb, index}
-                        <li class="inline-flex items-center">
-                            <a class="flex items-center text-base text-gray-400 hover:underline focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500" href={'/' + breadcrumbs.slice(0, index + 1).join('/')}>
-                                {crumb.charAt(0).toUpperCase() + crumb.slice(1)}
-                            </a>
-                            {#if index < breadcrumbs.length - 1}
-                                <svg class="shrink-0 size-5 text-gray-300 mx-2" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path d="M6 13L10 3" stroke="currentColor" stroke-linecap="round"></path>
-                                </svg>
-                            {/if}
-                        </li>
-                    {/each}
-                </ol>
-            </div>
+        <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-4">
+            {#if visible}
+                <h1 in:fly={{ y: 50, duration: 1000 }} class="text-5xl md:text-7xl font-light mb-6 tracking-wider marcellus">Our Services</h1>
+                <p in:fade={{ duration: 1000, delay: 500 }} class="text-xl md:text-2xl font-light max-w-3xl manrope">
+                    Discover the art of bespoke tailoring and elevate your style with our premium services.
+                </p>
+            {/if}
         </div>
-    </div>
+    </section>
 
-    <CarouselItem/>
-
-
-    <section class="py-24 bg-black/80">
-        <div class="container mx-auto px-4 gap-8">
-          <div class="flex flex-col md:flex-row mb-16">
-            <div class="md:w-1/2 mb-8 md:mb-0">
-              <h2 class="text-4xl font-serif mb-4 text-white">Our Services What We Offer</h2>
-              <p class="text-gray-400 italic mb-8">
-                Discover the range of bespoke services we provide to help you make the perfect choices.
-              </p>
-            </div>
-            <div class="md:w-1/2">
-              <p class="text-gray-300">
-                From bespoke suits crafted to your exact measurements to canvas suits that combine comfort and elegance, 
-                we offer a variety of services tailored to meet your sartorial needs. Explore our collection of finely made accessories 
-                to complement your wardrobe. Let us help you elevate your style with personalized service and expert craftsmanship.
-              </p>
-            </div>
-          </div>
-          <div class="w-full flex h-1/2 text-white">
-            <div class="w-1/2 p-24 flex flex-col justify-center">
-              <h1 class="text-4xl font-bold mb-4 text-start max-w-2xl leading-normal">Bespoke Suit & Dress Making Professionals</h1>
-              <p class="text-xl mb-4 text-start italic text-gray-400">High Quality</p>
-              <p class="mb-8 text-gray-200 text-start max-w-xl">
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti cupiditate non provident, similique sunt in culpa...
-              </p>
-            </div>
-            <div class="w-1/2 bg-cover bg-center" style="background-image: url('https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/main-home-img-6.jpg');">
-              <!-- You'll need to replace the URL with an actual image of a tailor working on a suit -->
-            </div>
-          </div>
-    
-          <div class="w-full flex h-1/2 text-white">
-            <div class="w-1/2 bg-cover bg-center" style="background-image: url('https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/main-home-img-6.jpg');">
-                <!-- You'll need to replace the URL with an actual image of a tailor working on a suit -->
-              </div>
-            <div class="w-1/2 p-24 ml-16 flex flex-col justify-center">
-              <h1 class="text-4xl font-bold mb-4 text-start max-w-2xl leading-normal">Bespoke Suit & Dress Making Professionals</h1>
-              <p class="text-xl mb-4 text-start italic text-gray-400">High Quality</p>
-              <p class="mb-8 text-gray-200 text-start max-w-xl">
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti cupiditate non provident, similique sunt in culpa...
-              </p>
-            </div>
-          </div>
-
-         
+    <section class="py-24 px-4 md:px-16">
+        <div class="max-w-6xl mx-auto">
+            {#if visible}
+                <h2 in:fly={{ y: 50, duration: 1000 }} class="text-4xl md:text-5xl font-light mb-16 text-center tracking-wider marcellus">Tailored Excellence</h2>
+            {/if}
+            {#each services as service, index}
+                {#if visible}
+                    <div in:fade={{ duration: 1000, delay: 300 * index }} class="mb-24 flex flex-col md:flex-row items-center justify-between">
+                        <div class="w-full md:w-1/2 mb-8 md:mb-0 {index % 2 === 0 ? 'md:pr-16' : 'md:pl-16 md:order-2'}">
+                            <h3 class="text-3xl md:text-4xl font-light mb-6 marcellus">{service.title}</h3>
+                            <p class="text-lg md:text-xl font-light leading-relaxed mb-8 manrope">{service.description}</p>
+                            <a href="/contact" class="manrope inline-block px-6 py-3 mt-4 bg-amber-400 text-black font-semibold transition-all duration-300 hover:bg-amber-300 hover:shadow-lg">Learn More</a>
+                        </div>
+                        <div class="w-full md:w-1/2 {index % 2 === 0 ? '' : 'md:order-1'}">
+                            <img src={service.image} alt={service.title} class="w-full h-auto object-cover shadow-lg transition-all duration-300 hover:shadow-2xl" />
+                        </div>
+                    </div>
+                {/if}
+            {/each}
         </div>
-      </section> 
-      
-     
+    </section>
 </div>
 
-
 <style>
-    #services {
-        font-family: 'Manrope', sans-serif;
+    :global(body) {
+        background-color: #0d0d0d;
+        color: white;
     }
 </style>

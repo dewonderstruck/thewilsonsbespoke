@@ -80,7 +80,7 @@
 			: ''}"
 		transition:fade
 	>
-	<div class="bg-red-300 text-center py-3 text-base font-medium">
+	<div class="bg-red-300 text-center py-3 text-base text-black font-medium">
 		Website under development, some links may be broken or pages may not work as expected.
 	</div>
 		<div class="container mx-auto px-4 py-4 flex justify-center items-center">
@@ -163,6 +163,7 @@
 				<a href="/" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Home</a>
 				<a href="/services" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Services</a>
 				<a href="/our-process" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Our Process</a>
+				<a href="/lookbook" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Lookbook</a>
 				<div class="w-full">
 					<a href="/about" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>About</a>
 				</div>
