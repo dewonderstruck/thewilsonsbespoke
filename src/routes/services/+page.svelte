@@ -2,8 +2,8 @@
     import { IconMail, IconPhone, IconMapPin } from '@tabler/icons-svelte';
     import { page } from '$app/stores';
     import { onMount } from 'svelte';
-    import Carousel from 'svelte-carousel'
     import CarouselItem from '$lib/component/carouselItem.svelte'
+    import Bespokesuits from '$lib/component/bespokesuits.svelte'
     export let slides = [
         {
             image: 'https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/inner-img-14.jpg',
@@ -71,6 +71,9 @@
         </div>
     </div>
 
+    <CarouselItem/>
+
+
     <section class="py-24 bg-black/80">
         <div class="container mx-auto px-4 gap-8">
           <div class="flex flex-col md:flex-row mb-16">
@@ -114,15 +117,7 @@
             </div>
           </div>
 
-          <Carousel
-  particlesToShow={3}
-  particlesToScroll={2}
->
-  {#each colors as { color, text } (color)}
-    <CarouselItem {color} {text} />
-  {/each}
-</Carousel>
-          
+         
         </div>
       </section> 
       
