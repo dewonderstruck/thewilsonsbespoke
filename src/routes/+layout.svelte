@@ -187,7 +187,7 @@
 	  
 	<!-- Floating Chat Button -->
 	<a 
-		href="https://www.instagram.com/your_instagram_handle" 
+		href="https://www.instagram.com/thewilsonsbespoke/" 
 		target="_blank" 
 		rel="noopener noreferrer" 
 		class="fixed bottom-6 right-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center overflow-hidden"
