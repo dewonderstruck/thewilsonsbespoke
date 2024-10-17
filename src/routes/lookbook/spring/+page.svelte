@@ -32,7 +32,7 @@
   ];
 </script>
 
-<div class="flex manrope flex-col bg-[#0C0404] items-center min-h-screen w-screen text-white">
+<div class="flex flex-col bg-[#0C0404] items-center min-h-screen w-screen text-white">
   <div class="relative w-full h-[50vh] bg-cover bg-black bg-center flex items-center justify-center">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <h1 class="relative top-40 text-4xl md:text-6xl lg:text-7xl uppercase tracking-widest text-center ">Spring Bespoke Suits</h1>

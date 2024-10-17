@@ -48,7 +48,7 @@
 <main class="flex flex-col justify-center items-center min-h-screen bg-cover bg-center text-white text-center p-4" style="background-image: url({bg});">
 	<div class="max-w-2xl bg-opacity-70 p-6 rounded-lg">
 		<h1 class="text-5xl md:text-6xl font-bold mb-4">{companyName}</h1>
-		<p class="manrope text-lg md:text-xl mb-2">We're tailoring the perfect experience for you.</p>
+		<p class=" text-lg md:text-xl mb-2">We're tailoring the perfect experience for you.</p>
 	</div>
 </main>
 
@@ -58,12 +58,12 @@
 			<address class="text-sm mb-2 not-italic">
 				ANITHA ENCLAVE, PLOT NO 10, JUBILE HILLS, Hyderabad, TG, 500033
 			</address>
-			<p class="manrope text-sm mb-4">GSTIN: 36AKSPV5642F1ZK</p>
-			<p class="manrope text-sm mb-4">&copy; {new Date().getFullYear()} {companyName}. All rights reserved.</p>
+			<p class=" text-sm mb-4">GSTIN: 36AKSPV5642F1ZK</p>
+			<p class=" text-sm mb-4">&copy; {new Date().getFullYear()} {companyName}. All rights reserved.</p>
 			<nav class="flex justify-center space-x-4">
-				<a href="#" class="manrope text-sm hover:text-gray-300 transition-colors duration-300 hover:underline hover:underline-offset-4">Privacy Policy</a>
-				<a href="#" class="manrope text-sm hover:text-gray-300 transition-colors duration-300 hover:underline hover:underline-offset-4">Terms of Service</a>
-				<a href="#" class="manrope text-sm hover:text-gray-300 transition-colors duration-300 hover:underline hover:underline-offset-4">Contact Us</a>
+				<a href="#" class=" text-sm hover:text-gray-300 transition-colors duration-300 hover:underline hover:underline-offset-4">Privacy Policy</a>
+				<a href="#" class=" text-sm hover:text-gray-300 transition-colors duration-300 hover:underline hover:underline-offset-4">Terms of Service</a>
+				<a href="#" class=" text-sm hover:text-gray-300 transition-colors duration-300 hover:underline hover:underline-offset-4">Contact Us</a>
 			</nav>
 		</div>
 	</div>

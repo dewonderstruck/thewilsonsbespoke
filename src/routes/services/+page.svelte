@@ -36,7 +36,7 @@
         <div class="relative h-full flex flex-col justify-center items-center text-center px-4">
             {#if visible}
                 <h1 in:fly={{ y: 50, duration: 1000 }} class="text-5xl md:text-7xl font-light mb-6 tracking-wider">Our Services</h1>
-                <p in:fade={{ duration: 1000, delay: 500 }} class="text-xl md:text-2xl font-light max-w-3xl manrope">
+                <p in:fade={{ duration: 1000, delay: 500 }} class="text-xl md:text-2xl font-light max-w-3xl">
                     Discover the art of bespoke tailoring and elevate your style with our premium services.
                 </p>
             {/if}
@@ -53,8 +53,8 @@
                     <div in:fade={{ duration: 1000, delay: 300 * index }} class="mb-24 flex flex-col md:flex-row items-center justify-between">
                         <div class="w-full md:w-1/2 mb-8 md:mb-0 {index % 2 === 0 ? 'md:pr-16' : 'md:pl-16 md:order-2'}">
                             <h3 class="text-3xl md:text-4xl font-light mb-6">{service.title}</h3>
-                            <p class="text-lg md:text-xl font-light leading-relaxed mb-8 manrope">{service.description}</p>
-                            <a href="/contact" class="manrope inline-block px-6 py-3 mt-4 bg-amber-400 text-black font-semibold transition-all duration-300 hover:bg-amber-300 hover:shadow-lg">Learn More</a>
+                            <p class="text-lg md:text-xl font-light leading-relaxed mb-8 ">{service.description}</p>
+                            <a href="/contact" class=" inline-block px-6 py-3 mt-4 bg-amber-400 text-black font-semibold transition-all duration-300 hover:bg-amber-300 hover:shadow-lg">Learn More</a>
                         </div>
                         <div class="w-full md:w-1/2 {index % 2 === 0 ? '' : 'md:order-1'}">
                             <img src={service.image} alt={service.title} class="w-full h-auto object-cover shadow-lg transition-all duration-300 hover:shadow-2xl" />

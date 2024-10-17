@@ -24,19 +24,23 @@
 
 <div class="flex flex-col items-center min-h-screen bg-[#0C0404] text-white">
     <div class="relative w-full h-[61.8vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
-        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
         <div class="absolute inset-0 top-40 flex items-center justify-center">
             {#if visible}
-                <h1 class="manrope text-5xl md:text-7xl uppercase tracking-widest text-center">Contact Us</h1>
+            <div class="relative h-full flex flex-col justify-center items-center text-center px-4">
+                {#if visible}
+                    <h1 in:fly={{ y: 50, duration: 1000 }} class="text-5xl md:text-7xl font-light mb-8 tracking-wider">Contact Us</h1>
+                    <p in:fade={{ duration: 1000, delay: 500 }} class="text-xl md:text-md font-light max-w-3xl">
+                      Experience the pinnacle of bespoke tailoring. Reach out to schedule your personal consultation and begin your journey to impeccable style.
+                    </p>
+                {/if}
+            </div>
             {/if}
         </div>
     </div>
 
     <section class="w-full py-24 px-8 md:px-16 lg:px-24">
         <div class="max-w-6xl mx-auto">
-            {#if visible}
-                <h2 in:fly={{ y: 50, duration: 1000, delay: 300 }} class="text-4xl md:text-5xl uppercase mb-16 text-center tracking-wider">Get in Touch</h2>
-            {/if}
             <div class="flex flex-col md:flex-row gap-16">
                 <div class="w-full md:w-1/2">
                     {#if visible}
@@ -63,10 +67,10 @@
                         </form>
                     {/if}
                 </div>
-                <div class="w-full md:w-1/2 space-y-8 manrope">
+                <div class="w-full md:w-1/2 space-y-8">
                     {#if visible}
                         <div in:fade={{ duration: 1000, delay: 900 }} class="space-y-4">
-                            <h3 class="text-2xl font-semibold">Visit Our Atelier</h3>
+                            <h3 class="text-2xl font-medium">Visit Our Atelier</h3>
                             <p class="text-gray-300 ">Experience the art of bespoke tailoring firsthand. Our master craftsmen are ready to bring your vision to life.</p>
                             <div class="flex items-center space-x-4">
                                 <IconMapPin class="text-amber-500" />
@@ -74,7 +78,7 @@
                             </div>
                         </div>
                         <div in:fade={{ duration: 1000, delay: 1200 }} class="space-y-4">
-                            <h3 class="text-2xl font-semibold">Contact Information</h3>
+                            <h3 class="text-2xl font-medium">Contact Information</h3>
                             <div class="flex items-center space-x-4">
                                 <IconPhone class="text-amber-500" />
                                 <span>+44 20 1234 5678</span>
@@ -85,7 +89,7 @@
                             </div>
                         </div>
                         <div in:fade={{ duration: 1000, delay: 1500 }} class="space-y-4">
-                            <h3 class="text-2xl font-semibold">Opening Hours</h3>
+                            <h3 class="text-2xl font-medium">Opening Hours</h3>
                             <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
                             <p>Saturday: 10:00 AM - 4:00 PM</p>
                             <p>Sunday: Closed</p>
@@ -101,9 +105,5 @@
     :global(body) {
         background-color: #0C0404;
         color: white;
-    }
-
-    input, textarea {
-        font-family: 'Manrope', sans-serif;
     }
 </style>

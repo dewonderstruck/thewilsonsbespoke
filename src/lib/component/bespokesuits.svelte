@@ -20,7 +20,7 @@
       <div class="relative border border-gray-100/20 text-center bg-black/90">
         <img src={suit.image} alt={suit.name} class="w-full h-auto"/>
         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-70 hover:underline hover:underline-offset-8 hover:decoration-gray-100/20 hover:decoration-1 transition-opacity">
-          <span class="text-white text-4xl font-semibold uppercase tracking-wider hover:shadow-lg manrope ">{suit.name}</span>
+          <span class="text-white text-4xl font-semibold uppercase tracking-wider hover:shadow-lg ">{suit.name}</span>
         </div>
       </div>
     {/each}

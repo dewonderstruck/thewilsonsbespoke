@@ -18,10 +18,10 @@
 <div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-black to-gray-900 text-white px-4">
     <div class="w-full max-w-4xl mx-auto text-center flex flex-col items-center justify-center" style="aspect-ratio: 1.618">
         {#if visible}
-            <h1 in:fly={{ y: -50, duration: 1000 }} class="text-6xl sm:text-8xl font-bold mb-4 manrope">{status}</h1>
+            <h1 in:fly={{ y: -50, duration: 1000 }} class="text-6xl sm:text-8xl font-bold mb-4 ">{status}</h1>
             <p in:fade={{ duration: 1000, delay: 300 }} class="text-xl sm:text-2xl mb-2">{emoji} {statusText}</p>
             <div in:fade={{ duration: 1000, delay: 600 }} class="flex flex-col items-center">
-                <span class="text-base sm:text-lg manrope block mb-4">{description}</span>
+                <span class="text-base sm:text-lg  block mb-4">{description}</span>
                 <a href="/" class="inline-block px-6 py-3 mt-4 bg-amber-400 text-black font-semibold rounded-full transition-all duration-300 hover:bg-amber-300 hover:shadow-lg">Return to Homepage</a>
             </div>
         {/if}

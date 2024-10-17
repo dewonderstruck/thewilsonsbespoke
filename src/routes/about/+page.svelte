@@ -23,9 +23,10 @@
 <main class="flex flex-col items-center min-h-screen bg-[#0C0404] text-white">
   <div class="relative w-full h-[61.8vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/inner-img-14.jpg');">
     <div class="absolute inset-0 bg-opacity-50 flex items-center justify-center"></div>
-    <div class="absolute inset-0 top-40 flex items-center justify-center">
+    <div class="absolute inset-0 top-40 flex flex-col items-center justify-center">
       {#if visible}
-        <h1 class="text-4xl md:text-6xl lg:text-7xl uppercase tracking-widest text-center">About T. Wilson's Bespoke</h1>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl uppercase tracking-widest text-center mb-4">About</h1>
+        <p class="text-xl mt-2 md:text-xl lg:text-2xl text-center font-light">Our Journey in Bespoke Tailoring</p>
       {/if}
     </div>
   </div>
@@ -60,10 +61,10 @@
             <img src="https://th-i.thgim.com/public/life-and-style/fashion/kt4qbg/article29449698.ece/alternates/FREE_1200/hym19Mallik-Wilson-2" alt={founder.name} class="w-full h-auto object-cover">
           </div>
           <div in:fly={{x: 50, duration: 1000, delay: 600}} class="w-full md:w-1/2 md:pl-16">
-            <h2 class="text-5xl mb-6">{founder.name}</h2>
+            <h2 class="text-5xl uppercase mb-6">{founder.name}</h2>
             <p class="text-2xl italic text-amber-400 mb-8">{founder.title}</p>
             <p class="text-xl leading-relaxed mb-12">{founder.bio}</p>
-            <div class="space-y-4 text-lg manrope">
+            <div class="space-y-4 text-lg">
               <div class="flex items-center">
                 <IconMail class="mr-4 text-amber-400" /><span>{founder.email}</span>
               </div>
@@ -91,9 +92,9 @@
   <section id="commitment" class="w-full py-24 bg-[#0C0404]">
     <div class="container mx-auto px-8 md:px-16 lg:px-24">
       {#if visible}
-        <h2 in:fly={{y: 50, duration: 1000, delay: 300}} class="text-4xl md:text-5xl lg:text-6xl uppercase mb-16 text-center tracking-wider">Our Commitment to Excellence</h2>
+        <h2 in:fly={{y: 50, duration: 1000, delay: 300}} class="text-4xl md:text-5xl lg:text-5xl uppercase mb-16 text-center tracking-wider">Our Commitment <br> to Excellence</h2>
         <p in:fade={{duration: 1000, delay: 600}} class="text-xl text-center max-w-4xl mx-auto leading-relaxed mb-16">
-          At T. Wilson's Bespoke, we are dedicated to the art of fine tailoring and the pursuit of sartorial perfection. 
+          At The Wilson's Bespoke, we are dedicated to the art of fine tailoring and the pursuit of sartorial perfection. 
           Each garment is a testament to our commitment to quality, craftsmanship, and personalized service. 
           We invite you to experience the luxury of truly bespoke clothing, where every stitch tells a story of elegance and individuality.
         </p>
