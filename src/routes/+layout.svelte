@@ -69,6 +69,8 @@
 	function toggleMenu() {
 		isMenuOpen = !isMenuOpen;
 	}
+
+	let isExpanded = false;
 </script>
 
 {#if loading}
@@ -183,4 +185,19 @@
 	<slot />
 	<Footer2/>
 	  
+	<!-- Floating Chat Button -->
+	<a 
+		href="https://www.instagram.com/your_instagram_handle" 
+		target="_blank" 
+		rel="noopener noreferrer" 
+		class="fixed bottom-6 right-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center overflow-hidden"
+		style="width: {isExpanded ? '200px' : '56px'}; height: 56px;"
+		on:mouseenter={() => isExpanded = true}
+		on:mouseleave={() => isExpanded = false}
+	>
+		<div class="flex items-center justify-center w-14 h-14 {isExpanded ? '' : 'ml-3.5'}">
+			<IconBrandInstagram size={28} />
+		</div>
+		<span class="whitespace-nowrap text-base font-medium {isExpanded ? '' : 'mr-3.5'} overflow-hidden" style="max-width: {isExpanded ? '144px' : '0'}; opacity: {isExpanded ? '1' : '0'}; transition: max-width 0.3s ease-out, opacity 0.3s ease-out;">Send a message</span>
+	</a>
 {/if}
