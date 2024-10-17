@@ -1,52 +1,71 @@
+@import url("https://use.typekit.net/hzh7oof.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-    font-family: 'Manrope Variable', sans-serif;
-}
-
-main {
-    font-family: 'Marcellus', serif;
-}
-
-.manrope {
-    font-family: 'Manrope Variable', sans-serif;
-}
-
-.marcellus {
-    font-family: 'Marcellus', serif;
-}
-
-.cormorant-garamond {
-    font-family: 'Cormorant Garamond', serif;
-}
-
-.inter {
-    font-family: 'Inter', sans-serif;
-}
-
-@font-face {
-    font-display: swap;
-    font-family: Cormorant Garamond;
+    font-family: 'Myriad Pro Regular', sans-serif;
+    font-weight: normal;
     font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "stix-two-text", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.stix-math {
+    font-family: "stix-two-math", serif;
     font-weight: 400;
-    src: url(https://cdn.mxpnl.com/static/marketing/fonts/garnett/garnett-regular.woff2) format("woff2")
+    font-style: normal;
 }
 
-@font-face {
-    font-display: swap;
-    font-family: Garnett;
-    font-style: normal;
-    font-weight: 500;
-    src: url(https://cdn.mxpnl.com/static/marketing/fonts/garnett/garnett-medium.woff2) format("woff2")
-}
-
-@font-face {
-    font-display: swap;
-    font-family: Garnett;
-    font-style: normal;
+.stix-text {
+    font-family: "stix-two-text", serif;
     font-weight: 400;
-    src: url(https://cdn.mxpnl.com/static/marketing/fonts/garnett/garnett-regular.woff2) format("woff2")
+    font-style: normal;
+}
+
+.stix-text-italic {
+    font-family: "stix-two-text", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.stix-text-bold {
+    font-family: "stix-two-text", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.stix-text-bold-italic {
+    font-family: "stix-two-text", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.myriad-pro-regular {
+    font-family: 'Myriad Pro Regular', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}   
+
+.myriad-pro-bold {
+    font-family: 'Myriad Pro Bold', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.myriad-pro-italic {
+    font-family: 'Myriad Pro Regular', sans-serif;
+    font-weight: normal;
+    font-style: italic;
+}   
+
+.myriad-pro-bold-condensed {
+    font-family: 'Myriad Pro Bold Condensed', sans-serif;
+    font-weight: normal;
+    font-style: normal;
 }

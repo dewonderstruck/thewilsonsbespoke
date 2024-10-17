@@ -30,7 +30,7 @@
         </div>
         <div class="relative h-full flex flex-col justify-center items-center text-center px-4">
             {#if visible}
-                <h1 in:fly={{ y: 50, duration: 1000 }} class="marcellus text-5xl md:text-7xl font-light mb-6 tracking-wider">The Bespoke Journey</h1>
+                <h1 in:fly={{ y: 50, duration: 1000 }} class="text-5xl md:text-7xl font-light mb-6 tracking-wider">The Bespoke Journey</h1>
                 <p in:fade={{ duration: 1000, delay: 500 }} class="text-xl md:text-2xl font-light max-w-3xl">Embark on an exquisite odyssey of style, where each stitch tells a story of unparalleled craftsmanship and timeless elegance.</p>
             {/if}
         </div>
@@ -55,7 +55,4 @@
 </div>
 
 <style>
-    p {
-        font-family: 'Manrope', sans-serif;
-    }
 </style>

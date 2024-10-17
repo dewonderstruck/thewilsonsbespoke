@@ -7,6 +7,7 @@ export default {
     './src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
+      
     },
   },
   plugins: [
@@ -14,4 +15,3 @@ export default {
     flowbitePlugin
   ],
 }
-

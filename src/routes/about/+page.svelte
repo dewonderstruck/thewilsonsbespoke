@@ -20,21 +20,21 @@
   });
 </script>
 
-<main class="flex flex-col items-center min-h-screen bg-[#0C0404] text-white font-serif">
+<main class="flex flex-col items-center min-h-screen bg-[#0C0404] text-white">
   <div class="relative w-full h-[61.8vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/inner-img-14.jpg');">
     <div class="absolute inset-0 bg-opacity-50 flex items-center justify-center"></div>
     <div class="absolute inset-0 top-40 flex items-center justify-center">
       {#if visible}
-        <h1 class="text-4xl md:text-6xl lg:text-7xl uppercase tracking-widest text-center marcellus">About T. Wilson's Bespoke</h1>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl uppercase tracking-widest text-center">About T. Wilson's Bespoke</h1>
       {/if}
     </div>
   </div>
 
   <section id="our-story" class="w-full py-24 px-8 md:px-16 lg:px-24">
     {#if visible}
-      <h2 in:fly={{y: 50, duration: 1000, delay: 300}} class="text-4xl md:text-5xl lg:text-6xl uppercase mb-16 text-center tracking-wider marcellus">Our Story</h2>
+      <h2 in:fly={{y: 50, duration: 1000, delay: 300}} class="text-4xl md:text-5xl lg:text-6xl uppercase mb-16 text-center tracking-wider">Our Story</h2>
     {/if}
-    <div class="max-w-4xl mx-auto text-justify text-lg leading-relaxed space-y-8 marcellus">
+    <div class="max-w-4xl mx-auto text-justify text-lg leading-relaxed space-y-8">
       {#if visible}
         <p in:fade={{duration: 1000, delay: 600}}>
           At <span class="italic text-amber-400">The Wilson's</span>, each garment is more than just a piece of clothing — it's a work of art, meticulously crafted to perfection. From selecting the finest fabrics sourced from renowned mills to hand-stitching every seam with precision and care, our artisans pour their expertise and passion into every stitch, ensuring that each creation embodies the highest standards of quality and refinement.
@@ -88,7 +88,7 @@
     </div>
   </section>
 
-  <section id="commitment" class="w-full py-24 bg-[#0C0404] marcellus">
+  <section id="commitment" class="w-full py-24 bg-[#0C0404]">
     <div class="container mx-auto px-8 md:px-16 lg:px-24">
       {#if visible}
         <h2 in:fly={{y: 50, duration: 1000, delay: 300}} class="text-4xl md:text-5xl lg:text-6xl uppercase mb-16 text-center tracking-wider">Our Commitment to Excellence</h2>

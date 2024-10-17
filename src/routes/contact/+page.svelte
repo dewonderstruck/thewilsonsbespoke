@@ -22,17 +22,17 @@
     };
 </script>
 
-<div class="flex flex-col items-center min-h-screen bg-[#0C0404] text-white font-serif">
+<div class="flex flex-col items-center min-h-screen bg-[#0C0404] text-white">
     <div class="relative w-full h-[61.8vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
         <div class="absolute inset-0 bg-black bg-opacity-60"></div>
         <div class="absolute inset-0 top-40 flex items-center justify-center">
             {#if visible}
-                <h1 class="manrope text-5xl md:text-7xl uppercase tracking-widest text-center marcellus">Contact Us</h1>
+                <h1 class="manrope text-5xl md:text-7xl uppercase tracking-widest text-center">Contact Us</h1>
             {/if}
         </div>
     </div>
 
-    <section class="w-full py-24 px-8 md:px-16 lg:px-24 marcellus">
+    <section class="w-full py-24 px-8 md:px-16 lg:px-24">
         <div class="max-w-6xl mx-auto">
             {#if visible}
                 <h2 in:fly={{ y: 50, duration: 1000, delay: 300 }} class="text-4xl md:text-5xl uppercase mb-16 text-center tracking-wider">Get in Touch</h2>

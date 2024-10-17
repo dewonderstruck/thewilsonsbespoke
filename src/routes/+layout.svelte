@@ -1,21 +1,19 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
 	import logo from '$lib/assets/logo.edba41e7-3-removebg-preview.png';
-	import Footer from '$lib/component/footersection.svelte';
 	import { onMount } from 'svelte';
 	import { session } from '$lib/session';
 	import Footer2 from "$lib/main/footer.svelte";
 	import { goto } from '$app/navigation';
 	import { IconBrandMeta, IconBrandX, IconBrandYoutubeFilled, IconBrandInstagram, IconSend2 } from '@tabler/icons-svelte';
-	import { IconMenu, IconX } from '@tabler/icons-svelte';
+	import { IconMenu3, IconX } from '@tabler/icons-svelte';
+	import { fade, fly, slide, scale } from 'svelte/transition';
+	import { quintOut, elasticOut } from 'svelte/easing';
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	import { signOut } from 'firebase/auth';
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	import { auth } from '$lib/firebase.client';
 	import '../app.css';
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	import '@fontsource-variable/manrope';
-	import '@fontsource/marcellus';
 
 	import type { LayoutData } from './$types';
 	export let data: LayoutData;
@@ -25,7 +23,9 @@
 	let isMenuOpen: boolean = false;
 
 	afterNavigate(() => {
-		window.HSStaticMethods.autoInit();
+		if (typeof window !== 'undefined' && 'HSStaticMethods' in window) {
+			(window as any).HSStaticMethods.autoInit();
+		}
 	});
 
 	session.subscribe((cur: any) => {
@@ -71,6 +71,7 @@
 	}
 
 	let isExpanded = false;
+	let hoveredItem: string | null = null;
 </script>
 
 {#if loading}
@@ -87,10 +88,11 @@
 	</div>
 		<div class="container mx-auto px-4 py-4 flex justify-center items-center">
 			<button class="text-white md:hidden absolute left-8" on:click={toggleMenu}>
+				<!-- svelte-ignore block_empty -->
 				{#if isMenuOpen}
-					<IconX size={34} />
+					
 				{:else}
-					<IconMenu size={34} />
+					<IconMenu3 size={42} />
 				{/if}
 			</button>
 			<div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex justify-center">
@@ -156,31 +158,50 @@
 	</header>
 
 	<!-- Responsive Menu Overlay -->
-	<div class="fixed inset-0 bg-black bg-opacity-95 z-20 transition-transform duration-500 {isMenuOpen ? 'translate-y-0' : '-translate-y-full'}">
-		<div class="mx-auto px-6 py-8 flex flex-col items-start justify-between h-full">
-			<button class="text-white self-end p-2" on:click={toggleMenu}>
-				<IconX size={28} />
-			</button>
-			<nav class="flex flex-col items-start space-y-6 w-full">
-				<a href="/" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Home</a>
-				<a href="/services" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Services</a>
-				<a href="/our-process" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Our Process</a>
-				<a href="/lookbook" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Lookbook</a>
-				<div class="w-full">
-					<a href="/about" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>About</a>
+	{#if isMenuOpen}
+		<div 
+			class="fixed inset-0 bg-black bg-opacity-95 z-20"
+			transition:fade={{ duration: 300 }}
+		>
+			<div 
+				class="h-full w-full flex flex-col justify-between py-8 px-6"
+				in:fly={{ x: -100, duration: 400, easing: quintOut }}
+				out:fly={{ x: -100, duration: 300 }}
+			>
+				<button 
+					class="text-white self-end p-2 relative group" 
+					on:click={toggleMenu}
+				>
+					<IconX size={42} />
+					<span class="absolute inset-0 border-2 border-transparent rounded-full transition-all duration-300 group-hover:border-white"></span>
+				</button>
+				<nav class="flex flex-col items-start space-y-8 w-full">
+					{#each ['Home', 'Services', 'Our Process', 'Lookbook', 'About', 'Contact Us'] as item, index}
+						<a 
+							href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}
+							class="text-white text-3xl font-light tracking-wide transition-all duration-300 overflow-hidden relative group"
+							on:click={toggleMenu}
+							in:slide={{ delay: 100 * index, duration: 400, easing: quintOut }}
+						>
+							<span class="relative inline-block">
+								{item}
+								<span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
+							</span>
+							<span class="absolute left-0 w-full h-full bg-white/10 transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
+						</a>
+					{/each}
+				</nav>
+				<div class="flex space-x-6 mt-8" in:fade={{ delay: 600, duration: 400 }}>
+					<a href="https://www.instagram.com/thewilsonsbespoke/" class="text-white hover:text-gray-300 transition-colors duration-300">
+						<IconBrandInstagram size={28} />
+					</a>
+					<a href="https://www.instagram.com/thewilsonsbespoke/" class="text-white hover:text-gray-300 transition-colors duration-300">
+						<IconBrandMeta size={28} />
+					</a>
 				</div>
-				<a href="/contact" class="text-white text-2xl font-light tracking-wide border-b border-transparent hover:border-white transition-all duration-300" on:click={toggleMenu}>Contact Us</a>
-			</nav>
-			<div class="flex space-x-4 mt-8">
-				<a href="#" class="text-white hover:text-gray-300 transition-colors duration-300">
-					<IconBrandInstagram size={24} />
-				</a>
-				<a href="#" class="text-white hover:text-gray-300 transition-colors duration-300">
-					<IconBrandMeta size={24} />
-				</a>
 			</div>
 		</div>
-	</div>
+	{/if}
 
 	<slot />
 	<Footer2/>

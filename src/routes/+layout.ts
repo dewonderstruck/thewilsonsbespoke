@@ -5,7 +5,7 @@ import { browser } from '$app/environment';
 import { onAuthStateChanged } from 'firebase/auth';
 
 
-export async function load({ url }) {
+export async function load({ url }: { url: URL }) {
  if (browser) {
   try {
    initializeFirebase();

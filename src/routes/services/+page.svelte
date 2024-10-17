@@ -27,15 +27,15 @@
     ];
 </script>
 
-<div class="bg-[#0d0d0d] text-white font-serif">
+<div class="bg-[#0d0d0d] text-white">
     <section class="relative h-screen">
         <div class="absolute inset-0">
             <img src="https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/inner-img-14.jpg" alt="Bespoke Tailoring" class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
-        <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-4">
+        <div class="relative h-full flex flex-col justify-center items-center text-center px-4">
             {#if visible}
-                <h1 in:fly={{ y: 50, duration: 1000 }} class="text-5xl md:text-7xl font-light mb-6 tracking-wider marcellus">Our Services</h1>
+                <h1 in:fly={{ y: 50, duration: 1000 }} class="text-5xl md:text-7xl font-light mb-6 tracking-wider">Our Services</h1>
                 <p in:fade={{ duration: 1000, delay: 500 }} class="text-xl md:text-2xl font-light max-w-3xl manrope">
                     Discover the art of bespoke tailoring and elevate your style with our premium services.
                 </p>
@@ -46,13 +46,13 @@
     <section class="py-24 px-4 md:px-16">
         <div class="max-w-6xl mx-auto">
             {#if visible}
-                <h2 in:fly={{ y: 50, duration: 1000 }} class="text-4xl md:text-5xl font-light mb-16 text-center tracking-wider marcellus">Tailored Excellence</h2>
+                <h2 in:fly={{ y: 50, duration: 1000 }} class="text-4xl md:text-5xl font-light mb-16 text-center tracking-wider">Tailored Excellence</h2>
             {/if}
             {#each services as service, index}
                 {#if visible}
                     <div in:fade={{ duration: 1000, delay: 300 * index }} class="mb-24 flex flex-col md:flex-row items-center justify-between">
                         <div class="w-full md:w-1/2 mb-8 md:mb-0 {index % 2 === 0 ? 'md:pr-16' : 'md:pl-16 md:order-2'}">
-                            <h3 class="text-3xl md:text-4xl font-light mb-6 marcellus">{service.title}</h3>
+                            <h3 class="text-3xl md:text-4xl font-light mb-6">{service.title}</h3>
                             <p class="text-lg md:text-xl font-light leading-relaxed mb-8 manrope">{service.description}</p>
                             <a href="/contact" class="manrope inline-block px-6 py-3 mt-4 bg-amber-400 text-black font-semibold transition-all duration-300 hover:bg-amber-300 hover:shadow-lg">Learn More</a>
                         </div>

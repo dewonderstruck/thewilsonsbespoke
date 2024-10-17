@@ -38,7 +38,7 @@
 <div class="flex manrope flex-col bg-[#0C0404] items-center min-h-screen w-screen text-white">
   <div class="relative w-full h-[40vh] bg-cover bg-center flex items-center justify-center bg-black">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <h1 class="relative top-40 text-4xl md:text-6xl lg:text-7xl uppercase tracking-widest text-center marcellus">T. Wilson's Bespoke Lookbook</h1>
+    <h1 class="relative top-40 text-4xl md:text-6xl lg:text-7xl uppercase tracking-widest text-center">T. Wilson's Bespoke Lookbook</h1>
   </div>
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-7xl mx-auto px-4 py-16">
@@ -64,7 +64,7 @@
   </div>
 
   <div class="w-full max-w-7xl mx-auto px-4 py-16">
-    <h2 class="text-3xl mb-8 marcellus">Archived Collections</h2>
+    <h2 class="text-3xl mb-8">Archived Collections</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {#each ['Spring', 'Summer', 'Autumn', 'Winter'] as season}
         <a href={`/lookbook/${season.toLowerCase()}-23`} class="text-lg hover:text-amber-400 transition-colors duration-300">
@@ -79,13 +79,5 @@
   :global(body) {
     background-color: #0C0404;
     color: white;
-  }
-
-  .marcellus {
-    font-family: 'Marcellus', serif;
-  }
-
-  .manrope {
-    font-family: 'Manrope', sans-serif;
   }
 </style>

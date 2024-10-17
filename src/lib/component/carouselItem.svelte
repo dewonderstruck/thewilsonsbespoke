@@ -107,7 +107,6 @@
   }
 
   .title {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
     font-size: 20px;
     margin: 0;
@@ -115,7 +114,7 @@
   }
 
   .subtitle {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "myriad-pro", sans-serif;
     font-style: italic;
     font-size: 16px;
     margin: 0;

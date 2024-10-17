@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
     import { cubicOut } from 'svelte/easing';
-    import { fly } from 'svelte/transition';
+    import { slide, fade } from 'svelte/transition';
     import { IconChevronDown, IconChevronUp } from '@tabler/icons-svelte';
 
     export let slides = [
@@ -35,9 +35,9 @@
         }
     ];
 
-    let activeIndex = null;
+    let activeIndex: number | null = null;
 
-    function toggleFAQ(index) {
+    function toggleFAQ(index: number) {
         activeIndex = activeIndex === index ? null : index;
     }
 </script>
@@ -63,20 +63,21 @@
     <div class="relative my-8 p-6 max-w-4xl text-start w-full h-full">
         <div class="space-y-4">
             {#each faqs as faq, index}
-                <div class="border-b border-gray-700 overflow-hidden">
-                    <button class="w-full text-left py-4 focus:outline-none flex justify-between items-center" on:click={() => toggleFAQ(index)}>
-                        <h4 class="text-xl font-semibold">{faq.question}</h4>
-                        {#if activeIndex === index}
-                            <IconChevronUp class="w-5 h-5" />
-                        {:else}
+                <div class="border-b border-gray-700/40 overflow-hidden" transition:fade={{ duration: 300 }}>
+                    <button 
+                        class="w-full text-left p-4 focus:outline-none flex justify-between items-center transition-colors duration-300 hover:bg-zinc-800 {activeIndex === index ? 'bg-zinc-800' : 'bg-transparent'}" 
+                        on:click={() => toggleFAQ(index)}
+                    >
+                        <h4 class="text-xl font-medium">{faq.question}</h4>
+                        <div class="transition-transform duration-300 ease-in-out" class:rotate-180={activeIndex === index}>
                             <IconChevronDown class="w-5 h-5" />
-                        {/if}
-                    </button>
-                    <div class="transition-height duration-300 ease-out" style="height: {activeIndex === index ? 'auto' : '0'};">
-                        <div class="py-2" transition:fly={{ y: 10, duration: 300, easing: cubicOut }}>
-                            <p class="mb-2 manrope">{faq.answer}</p>
                         </div>
-                    </div>
+                    </button>
+                    {#if activeIndex === index}
+                        <div transition:slide={{ duration: 300, easing: cubicOut }}>
+                            <p class="p-4 mb-2 text-lg">{faq.answer}</p>
+                        </div>
+                    {/if}
                 </div>
             {/each}
         </div>
