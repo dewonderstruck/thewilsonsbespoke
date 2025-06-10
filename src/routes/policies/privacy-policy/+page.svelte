@@ -1,101 +1,152 @@
-<script>
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
+    import { IconChevronRight } from '@tabler/icons-svelte';
+
     export let slides = [
       {
         image: 'https://mohair.qodeinteractive.com/wp-content/uploads/2023/05/H1-rev-img-2.jpg',
         title: 'Privacy Policy',
-        subtitle: 'Learn how we protect and handle your personal information when you interact with our services...',
+        subtitle: 'Learn how we collect, use, and protect your personal information.',
+        lastUpdated: 'Last Updated: 17th March 2025',
       },
     ];
     let currentIndex = 0;
 </script>
 
-<main class="flex flex-col justify-center items-center min-h-screen bg-[#0C090A] text-white text-center">
-    <div class="relative w-full h-48">
+<svelte:head>
+    <title>Privacy Policy - The Wilson's Bespoke</title>
+    <meta name="description" content="Learn about The Wilson's Bespoke privacy policy, how we protect your data, and your privacy rights when using our bespoke tailoring services." />
+</svelte:head>
+
+<main class="min-h-screen bg-black text-white" in:fade={{ duration: 300 }}>
+    <!-- Hero Section -->
+    <div class="relative w-full h-[70vh] md:h-[90vh] overflow-hidden">
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+        <img 
+            src={slides[currentIndex].image} 
+            alt="Privacy Policy" 
+            class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="relative z-20 h-full flex flex-col items-center justify-center px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-light tracking-wider mb-6">{slides[currentIndex].title}</h1>
+            <p class="max-w-2xl text-lg md:text-xl text-white/80 font-light leading-relaxed mb-4">{slides[currentIndex].subtitle}</p>
+            <p class="text-sm text-amber-400">{slides[currentIndex].lastUpdated}</p>
+        </div>
     </div>
-    <div class="relative w-full h-96">
-      <img
-        src="{slides[currentIndex].image}"
-        alt="bg"
-        class="absolute inset-0 h-full w-full object-cover"
-        loading="lazy"
-        decoding="async"
-      />
-      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div class="relative flex flex-col items-center justify-center h-full">
-        <h2 class="text-4xl md:text-6xl font-bold">{slides[currentIndex].title}</h2>
-      </div>
-    </div>
 
-    <div class="relative my-8 p-6 max-w-4xl text-start">
-      <h3 class="text-2xl font-bold mb-4">Privacy Policy Overview</h3>
-      <p>This Privacy Policy outlines how your personal information is collected, used, and shared when you visit or make a purchase from our website (the “Site”). By using the Site, you agree to the collection and use of your information in accordance with this policy.</p>
+    <!-- Content Section -->
+    <div class="max-w-4xl mx-auto px-4 py-16 md:py-24">
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-sm mb-12 text-white/60">
+            <a href="/" class="hover:text-amber-400 transition-colors">Home</a>
+            <IconChevronRight size={16} />
+            <a href="/policies" class="hover:text-amber-400 transition-colors">Policies</a>
+            <IconChevronRight size={16} />
+            <span class="text-amber-400">Privacy Policy</span>
+        </div>
 
-      <h3 class="text-2xl font-bold mt-8 mb-4">Personal Information We Collect</h3>
-      <p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some cookies that are installed on your device. Additionally, as you browse the Site, we collect information about the individual web pages or products that you view, what websites or search terms referred you to the Site, and information about how you interact with the Site. We refer to this automatically-collected information as “Device Information”.</p>
+        <!-- Privacy Content -->
+        <div class="space-y-12">
+            <section class="space-y-4">
+                <h2 class="text-2xl md:text-3xl font-light tracking-wide text-amber-400">Information We Collect</h2>
+                <p class="text-white/80 leading-relaxed">We collect various types of information to provide and improve our bespoke tailoring services:</p>
+                <ul class="list-disc pl-6 space-y-2 text-white/80">
+                    <li>Personal information (name, email, phone number)</li>
+                    <li>Measurements and fitting preferences</li>
+                    <li>Payment information</li>
+                    <li>Delivery address and contact details</li>
+                    <li>Style preferences and order history</li>
+                </ul>
+            </section>
 
-      <p>We collect Device Information using the following technologies:</p>
-      <ul class="list-disc list-inside">
-        <li><strong>Cookies:</strong> Data files placed on your device that often include an anonymous unique identifier. For more information about cookies, and how to disable them, visit <a href="http://www.allaboutcookies.org" target="_blank" class="text-blue-500">allaboutcookies.org</a>.</li>
-        <li><strong>Log Files:</strong> Track actions occurring on the Site and collect data including your IP address, browser type, Internet service provider, referring/exit pages, and date/time stamps.</li>
-        <li><strong>Web Beacons, Tags, and Pixels:</strong> Electronic files used to record information about how you browse the Site.</li>
-      </ul>
+            <section class="space-y-4">
+                <h2 class="text-2xl md:text-3xl font-light tracking-wide text-amber-400">How We Use Your Information</h2>
+                <p class="text-white/80 leading-relaxed">Your information helps us provide personalized service:</p>
+                <ul class="list-disc pl-6 space-y-2 text-white/80">
+                    <li>Creating and maintaining your customer profile</li>
+                    <li>Processing and fulfilling your orders</li>
+                    <li>Communicating about your orders and services</li>
+                    <li>Improving our products and services</li>
+                    <li>Sending relevant marketing communications (with consent)</li>
+                </ul>
+            </section>
 
-      <p>When you make a purchase or attempt to make a purchase through the Site, we collect certain information from you, including your name, billing address, shipping address, payment information (including credit card numbers), email address, and phone number. We refer to this information as “Order Information”.</p>
+            <section class="space-y-4">
+                <h2 class="text-2xl md:text-3xl font-light tracking-wide text-amber-400">Data Protection</h2>
+                <p class="text-white/80 leading-relaxed">We implement robust security measures to protect your data:</p>
+                <ul class="list-disc pl-6 space-y-2 text-white/80">
+                    <li>Secure SSL encryption for all transactions</li>
+                    <li>Regular security audits and updates</li>
+                    <li>Limited access to personal information</li>
+                    <li>Secure data storage and backup systems</li>
+                </ul>
+            </section>
 
-      <p>When we talk about “Personal Information” in this Privacy Policy, we are talking both about Device Information and Order Information.</p>
+            <section class="space-y-4">
+                <h2 class="text-2xl md:text-3xl font-light tracking-wide text-amber-400">Cookie Policy</h2>
+                <p class="text-white/80 leading-relaxed">Our website uses cookies to enhance your experience:</p>
+                <ul class="list-disc pl-6 space-y-2 text-white/80">
+                    <li>Essential cookies for website functionality</li>
+                    <li>Analytics cookies to improve our service</li>
+                    <li>Preference cookies to remember your settings</li>
+                    <li>Marketing cookies (with your consent)</li>
+                </ul>
+            </section>
 
-      <h3 class="text-2xl font-bold mt-8 mb-4">How We Use Your Personal Information</h3>
-      <p>We use the Order Information that we collect generally to fulfill any orders placed through the Site (including processing your payment information through PayPal and Razorpay, arranging for shipping, and providing you with invoices and/or order confirmations). Additionally, we use this Order Information to:</p>
-      <ul class="list-disc list-inside">
-        <li>Communicate with you;</li>
-        <li>Screen our orders for potential risk or fraud;</li>
-        <li>When in line with the preferences you have shared with us, provide you with information or advertising relating to our products or services.</li>
-      </ul>
+            <section class="space-y-4">
+                <h2 class="text-2xl md:text-3xl font-light tracking-wide text-amber-400">Your Privacy Rights</h2>
+                <p class="text-white/80 leading-relaxed">You have the right to:</p>
+                <ul class="list-disc pl-6 space-y-2 text-white/80">
+                    <li>Access your personal data</li>
+                    <li>Request data correction or deletion</li>
+                    <li>Withdraw marketing consent</li>
+                    <li>Request data portability</li>
+                    <li>Lodge a complaint with authorities</li>
+                </ul>
+            </section>
 
-      <p>We use the Device Information that we collect to help us screen for potential risk and fraud (in particular, your IP address), and more generally to improve and optimize our Site (for example, by generating analytics about how our customers browse and interact with the Site, and to assess the success of our marketing and advertising campaigns).</p>
+            <section class="space-y-4">
+                <h2 class="text-2xl md:text-3xl font-light tracking-wide text-amber-400">Third-Party Services</h2>
+                <p class="text-white/80 leading-relaxed">We may share data with trusted partners:</p>
+                <ul class="list-disc pl-6 space-y-2 text-white/80">
+                    <li>Payment processors</li>
+                    <li>Shipping and delivery services</li>
+                    <li>Analytics providers</li>
+                    <li>Marketing services (with consent)</li>
+                </ul>
+            </section>
 
-      <h3 class="text-2xl font-bold mt-8 mb-4">Sharing Your Personal Information</h3>
-      <p>We share your Personal Information with third parties to help us use your Personal Information, as described above. For example, we use Google Analytics to help us understand how our customers use the Site—you can read more about how Google uses your Personal Information <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" class="text-blue-500">here</a>. You can also opt-out of Google Analytics <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" class="text-blue-500">here</a>.</p>
-
-      <p>We also share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights.</p>
-
-      <h3 class="text-2xl font-bold mt-8 mb-4">Behavioral Advertising</h3>
-      <p>We use your Personal Information to provide you with targeted advertisements or marketing communications we believe may be of interest to you. For more information about how targeted advertising works, you can visit the Network Advertising Initiative’s (“NAI”) educational page at <a href="http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work" target="_blank" class="text-blue-500">here</a>.</p>
-
-      <p>You can opt out of targeted advertising by using the links below:</p>
-      <ul class="list-disc list-inside">
-        <li><a href="https://www.facebook.com/settings/?tab=ads" target="_blank" class="text-blue-500">Facebook</a></li>
-        <li><a href="https://www.google.com/settings/ads/anonymous" target="_blank" class="text-blue-500">Google</a></li>
-        <li><a href="https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads" target="_blank" class="text-blue-500">Bing</a></li>
-      </ul>
-
-      <p>Additionally, you can opt out of some of these services by visiting the Digital Advertising Alliance’s opt-out portal at <a href="http://optout.aboutads.info/" target="_blank" class="text-blue-500">http://optout.aboutads.info/</a>.</p>
-
-      <h3 class="text-2xl font-bold mt-8 mb-4">Do Not Track</h3>
-      <p>Please note that we do not alter our Site’s data collection and use practices when we see a Do Not Track signal from your browser.</p>
-
-      <h3 class="text-2xl font-bold mt-8 mb-4">Your Rights</h3>
-      <p>If you are a European resident, you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us through the contact information below.</p>
-
-      <p>Additionally, if you are a European resident we note that we are processing your information in order to fulfill contracts we might have with you (for example if you make an order through the Site), or otherwise to pursue our legitimate business interests listed above. Additionally, please note that your information will be transferred outside of Europe, including to Canada and the United States.</p>
-
-      <h3 class="text-2xl font-bold mt-8 mb-4">Data Retention</h3>
-      <p>When you place an order through the Site, we will maintain your Order Information for our records unless and until you ask us to delete this information.</p>
-
-      <h3 class="text-2xl font-bold mt-8 mb-4">Changes to This Privacy Policy</h3>
-      <p>We may update this privacy policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons.</p>
-
-      <!-- TODO: Add contact details -->
-      <h3 class="text-2xl font-bold mt-8 mb-4">Contact Us</h3>
-      <p>For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at <a href="mailto:info@youremail.com" class="text-blue-500">info@youremail.com</a> or by mail using the details provided below:</p>
-
-      <p>Your Company Name<br/>
-      Street Address, City, State, ZIP, Country</p>
+            <section class="space-y-4">
+                <h2 class="text-2xl md:text-3xl font-light tracking-wide text-amber-400">Contact Information</h2>
+                <p class="text-white/80 leading-relaxed">For privacy-related inquiries, please contact us:</p>
+                <div class="space-y-2 pl-4 text-white/80">
+                    <p>Email: <a href="mailto:privacy@thewilsonsbespoke.com" class="text-amber-400 hover:underline">privacy@thewilsonsbespoke.com</a></p>
+                    <p>Phone: <a href="tel:+918978159977" class="text-amber-400 hover:underline">+91 089781 59977</a></p>
+                </div>
+            </section>
+        </div>
     </div>
 </main>
 
 <style>
-    a {
-        @apply underline underline-offset-4 text-blue-400/90;
+    section {
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    section::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.75rem;
+        width: 3px;
+        height: 1.5rem;
+        background-color: rgb(251 191 36 / 0.4);
+        border-radius: 4px;
+    }
+
+    :global(body) {
+        background-color: black;
     }
 </style>

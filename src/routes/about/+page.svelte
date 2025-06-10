@@ -1,36 +1,85 @@
-<script>
+<script lang="ts">
   import { IconMail, IconPhone, IconMapPin } from '@tabler/icons-svelte';
-  import { IconBrandLinkedin, IconBrandInstagram } from '@tabler/icons-svelte';
-  import CTAButton from '$lib/component/CTAButton.svelte';
+  import { IconBrandLinkedin, IconBrandInstagram, IconStars, IconScissors, IconTie } from '@tabler/icons-svelte';
   import { fade, fly, scale } from 'svelte/transition';
   import { onMount } from 'svelte';
+  import Breadcrumb from "$lib/component/Breadcrumb.svelte";
 
   let founder = {
     name: "Sujeeth Marc",
-    title: "Founder",
-    bio: "Sujeeth Marc, a visionary in bespoke fashion, transitioned from mechanical engineering to haute couture, driven by an unwavering passion for sartorial excellence. Since 2017, he has been the creative force behind T. Wilson's Bespoke, crafting exquisite, personalized garments for discerning clientele.",
-    email: "sujeeth.marc@twilsonsbespoke.com",
-    phone: "+91 98765 43210",
-    address: "10 Sravanthi Nagar, ICRISAT Colony, Jubilee Hills, Hyderabad, India"
+    title: "Founder & Master Designer",
+    bio: "A mechanical engineer and MBA graduate in HR, Sujeeth Marc followed his passion for fashion by transitioning into luxury tailoring. Since 2017, he has been crafting bespoke experiences through private appointments, culminating in the establishment of The Wilson's at Park Hyatt, Hyderabad - a 600 square foot atelier that embodies his vision of personalized luxury.",
+    email: "sujeeth.marc@thewilsonsbespoke.com",
+    phone: "+91 89781 59977",
+    address: "Park Hyatt, Banjara Hills, Hyderabad, India",
+    achievements: [
+      "Expertise in luxury retail segment",
+      "Personal styling and bespoke consultations",
+      "Partnerships with premium fabric houses worldwide"
+    ]
   };
 
   let visible = false;
   onMount(() => {
     visible = true;
   });
+
+  const values = [
+    {
+      icon: IconTie,
+      title: "Artisanal Excellence",
+      description: "Every garment is meticulously crafted by hand, embodying generations of tailoring expertise."
+    },
+    {
+      icon: IconScissors,
+      title: "Personalized Service",
+      description: "We provide an intimate, one-on-one experience tailored to your unique style preferences."
+    },
+    {
+      icon: IconStars,
+      title: "Timeless Quality",
+      description: "Using only the finest materials, we create garments that stand the test of time."
+    }
+  ];
+
+  const breadcrumbSegments = [
+    { name: "About", href: "/about" }
+  ];
 </script>
 
-<main class="flex flex-col items-center min-h-screen bg-[#0C0404] text-white">
-  <div class="relative w-full h-[61.8vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/inner-img-14.jpg');">
-    <div class="absolute inset-0 bg-opacity-50 flex items-center justify-center"></div>
-    <div class="absolute inset-0 top-40 flex flex-col items-center justify-center">
+<svelte:head>
+    <title>About Us - The Wilson's Bespoke</title>
+    <meta name="description" content="Discover the story behind The Wilson's Bespoke, our commitment to excellence in tailoring, and our founder's vision for redefining luxury menswear." />
+</svelte:head>
+
+<main class="min-h-screen bg-black text-white">
+  <!-- Hero Section -->
+  <div class="relative h-[70vh] md:h-[90vh] flex items-center justify-center">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-10"></div>
+    <img 
+      src="https://mohair.qodeinteractive.com/wp-content/uploads/2023/04/inner-img-14.jpg"
+      alt="About The Wilson's Bespoke" 
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
       {#if visible}
-        <h1 class="text-5xl md:text-6xl lg:text-7xl uppercase tracking-widest text-center mb-4">About</h1>
-        <p class="text-xl mt-2 md:text-xl lg:text-2xl text-center font-light">Our Journey in Bespoke Tailoring</p>
+        <h1 
+          class="text-4xl md:text-7xl font-light tracking-wider mb-8"
+          in:fly={{ y: 50, duration: 1000 }}
+        >
+          Crafting <span class="text-amber-400">Legacy</span>
+        </h1>
+        <p 
+          class="max-w-2xl mx-auto text-lg md:text-2xl text-white/90 font-light leading-relaxed"
+          in:fade={{ duration: 1000, delay: 500 }}
+        >
+          A journey of passion, precision, and unparalleled craftsmanship in bespoke tailoring.
+        </p>
       {/if}
     </div>
   </div>
 
+  <!-- Our Story Section -->
   <section id="our-story" class="w-full py-24 px-8 md:px-16 lg:px-24">
     {#if visible}
       <h2 in:fly={{y: 50, duration: 1000, delay: 300}} class="text-4xl md:text-5xl lg:text-6xl uppercase mb-16 text-center tracking-wider">Our Story</h2>
@@ -53,34 +102,75 @@
     </div>
   </section>
 
-  <section id="founder" class="w-full py-24 bg-[#0d0d0d]">
-    <div class="container mx-auto px-8 md:px-16 lg:px-24">
-      <div class="flex flex-col md:flex-row items-center justify-between">
+  <!-- Founder Section -->
+  <section class="relative py-32 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black"></div>
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {#if visible}
-          <div in:fly={{x: -50, duration: 1000, delay: 300}} class="w-full md:w-1/2 mb-12 md:mb-0">
-            <img src="https://th-i.thgim.com/public/life-and-style/fashion/kt4qbg/article29449698.ece/alternates/FREE_1200/hym19Mallik-Wilson-2" alt={founder.name} class="w-full h-auto object-cover">
+          <div 
+            class="relative group"
+            in:fly={{x: -50, duration: 1000, delay: 300}}
+          >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <img 
+              src="https://th-i.thgim.com/public/life-and-style/fashion/kt4qbg/article29449698.ece/alternates/FREE_1200/hym19Mallik-Wilson-2" 
+              alt={founder.name} 
+              class="w-full rounded-lg shadow-2xl transform group-hover:scale-105 transition-transform duration-700"
+            >
           </div>
-          <div in:fly={{x: 50, duration: 1000, delay: 600}} class="w-full md:w-1/2 md:pl-16">
-            <h2 class="text-5xl uppercase mb-6">{founder.name}</h2>
-            <p class="text-2xl italic text-amber-400 mb-8">{founder.title}</p>
-            <p class="text-xl leading-relaxed mb-12">{founder.bio}</p>
-            <div class="space-y-4 text-lg">
-              <div class="flex items-center">
-                <IconMail class="mr-4 text-amber-400" /><span>{founder.email}</span>
-              </div>
-              <div class="flex items-center">
-                <IconPhone class="mr-4 text-amber-400" /><span>{founder.phone}</span>
-              </div>
-              <div class="flex items-center">
-                <IconMapPin class="mr-4 text-amber-400" /><span>{founder.address}</span>
+          <div 
+            class="space-y-8"
+            in:fly={{x: 50, duration: 1000, delay: 600}}
+          >
+            <div>
+              <h2 class="text-4xl font-light mb-4">{founder.name}</h2>
+              <p class="text-xl text-amber-400">{founder.title}</p>
+            </div>
+            <p class="text-white/80 text-lg leading-relaxed">{founder.bio}</p>
+            
+            <div class="space-y-6 border-t border-white/10 pt-6">
+              {#each founder.achievements as achievement}
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <p class="text-white/70">{achievement}</p>
+                </div>
+              {/each}
+            </div>
+
+            <div class="space-y-4 pt-6">
+              <a 
+                href={`mailto:${founder.email}`} 
+                class="flex items-center gap-3 text-white/80 hover:text-amber-400 transition-colors duration-300"
+              >
+                <IconMail class="text-amber-400" />
+                <span>{founder.email}</span>
+              </a>
+              <a 
+                href={`tel:${founder.phone}`} 
+                class="flex items-center gap-3 text-white/80 hover:text-amber-400 transition-colors duration-300"
+              >
+                <IconPhone class="text-amber-400" />
+                <span>{founder.phone}</span>
+              </a>
+              <div class="flex items-start gap-3 text-white/80">
+                <IconMapPin class="text-amber-400 flex-shrink-0 mt-1" />
+                <span>{founder.address}</span>
               </div>
             </div>
-            <div class="mt-12 flex space-x-6">
-              <a href="#" class="text-amber-400 hover:text-white transition-colors">
-                <IconBrandLinkedin size={32} />
+
+            <div class="flex gap-4 pt-6">
+              <a 
+                href="#" 
+                class="p-3 bg-white/5 rounded-full hover:bg-amber-400/10 transition-colors duration-300"
+              >
+                <IconBrandLinkedin class="w-6 h-6 text-amber-400" />
               </a>
-              <a href="#" class="text-amber-400 hover:text-white transition-colors">
-                <IconBrandInstagram size={32} />
+              <a 
+                href="#" 
+                class="p-3 bg-white/5 rounded-full hover:bg-amber-400/10 transition-colors duration-300"
+              >
+                <IconBrandInstagram class="w-6 h-6 text-amber-400" />
               </a>
             </div>
           </div>
@@ -89,18 +179,56 @@
     </div>
   </section>
 
-  <section id="commitment" class="w-full py-24 bg-[#0C0404]">
-    <div class="container mx-auto px-8 md:px-16 lg:px-24">
+  <!-- Values Section -->
+  <section class="py-32 bg-white/5">
+    <div class="max-w-7xl mx-auto px-4">
       {#if visible}
-        <h2 in:fly={{y: 50, duration: 1000, delay: 300}} class="text-4xl md:text-5xl lg:text-5xl uppercase mb-16 text-center tracking-wider">Our Commitment <br> to Excellence</h2>
-        <p in:fade={{duration: 1000, delay: 600}} class="text-xl text-center max-w-4xl mx-auto leading-relaxed mb-16">
-          At The Wilson's Bespoke, we are dedicated to the art of fine tailoring and the pursuit of sartorial perfection. 
-          Each garment is a testament to our commitment to quality, craftsmanship, and personalized service. 
-          We invite you to experience the luxury of truly bespoke clothing, where every stitch tells a story of elegance and individuality.
-        </p>
-        <div in:scale={{duration: 500, delay: 900}} class="text-center">
-          <CTAButton text="Book an Appointment" href="/contact" />
+        <h2 
+          class="text-4xl md:text-5xl font-light text-center mb-24"
+          in:fly={{y: 50, duration: 1000}}
+        >
+          Our <span class="text-amber-400">Values</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {#each values as value, i}
+            <div 
+              class="text-center space-y-6 p-8 border border-white/10 rounded-lg hover:border-amber-400/20 transition-all duration-500 group"
+              in:fade={{ duration: 800, delay: i * 200 }}
+            >
+              <div class="text-amber-400 flex justify-center">
+                <svelte:component this={value.icon} size={48} />
+              </div>
+              <h3 class="text-2xl font-light group-hover:text-amber-400 transition-colors duration-300">{value.title}</h3>
+              <p class="text-white/70 leading-relaxed">{value.description}</p>
+            </div>
+          {/each}
         </div>
+      {/if}
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-32">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      {#if visible}
+        <h2 
+          class="text-4xl md:text-5xl font-light mb-8"
+          in:fly={{y: 50, duration: 1000}}
+        >
+          Experience the <span class="text-amber-400">Difference</span>
+        </h2>
+        <p 
+          class="text-white/80 text-lg mb-12 leading-relaxed"
+          in:fade={{duration: 1000, delay: 300}}
+        >
+          Begin your journey into the world of bespoke tailoring. Schedule a consultation with our master craftsmen and discover the perfect fit.
+        </p>
+        <a 
+          href="/contact"
+          class="inline-block px-12 py-4 border-2 border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-black transition-all duration-500 text-lg"
+        >
+          Book Consultation
+        </a>
       {/if}
     </div>
   </section>
@@ -108,33 +236,11 @@
 
 <style>
   :global(body) {
-    background-color: #0C0404;
-    color: white;
+    background-color: black;
   }
 
-  .container {
-    max-width: 1200px;
-  }
-
-  #our-story, #commitment {
-    background-color: #0C0404;
-  }
-
-  #founder {
-    background-color: #0d0d0d;
-  }
-
-  /* Add smooth transitions for hover effects */
-  a, button {
-    transition: all 0.3s ease;
-  }
-
-  /* Add a subtle hover effect to images */
-  img {
-    transition: transform 0.3s ease;
-  }
-
-  img:hover {
-    transform: scale(1.05);
+  /* Smooth scroll behavior */
+  :global(html) {
+    scroll-behavior: smooth;
   }
 </style>
